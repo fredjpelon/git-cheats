@@ -1,0 +1,35 @@
+I started my journey here,
+https://www.youtube.com/watch?v=RGOj5yH7evk
+(Gwen is awesome!)
+
+The youtube video linked above is a very basic start to using git and gitHub; highly recommended.
+The instructions below are for my starting setup which is a Windows box (running W11).
+To get started, get a gitHub account (apparently there are many other choices for repo storage:
+I used gitHub).
+Load the git app to your local machine.
+I am using VSCode as my code editor, same as Gwen.
+
+--------------------------------------------------------------------------------------------------
+Create a repo online and populate it starting with gitHub (as opposed to starting on your local
+machine)
+Nav to github.com and log in to your account
+Click green 'New'
+Enter repo name (this one is called git-cheats for example).
+Enter description.
+Click green 'Create repository'
+Click the hard-to-see link 'creating a new file'
+Name the new file README.md and enter some markdown text
+Click green 'Commit changes...'
+Click green 'Commit changes'
+In your editor nav to a clean directory.
+In gitHub, click on repo name to get back to repo home.
+Click on green '<> Code' dropdown and copy the https linki shown.
+In your editor, open a terminal and enter,
+
+git clone <link you just copied>
+
+cd into new directory
+Add/modify/create files in new directory.
+Get the status of all files.
+
+git status
