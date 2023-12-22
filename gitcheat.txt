@@ -33,3 +33,11 @@ Add/modify/create files in new directory.
 Get the status of all files.
 
 git status
+
+Tell git to track all files.
+
+git add .
+
+Commit files to repo.
+
+git commit -m "Title goes here" -m "Description goes here"
