@@ -6,8 +6,11 @@ The youtube video linked above is a very basic start to using git and gitHub; hi
 The instructions below are for my starting setup which is a Windows box (running W11).
 To get started, get a gitHub account (apparently there are many other choices for repo storage:
 I used gitHub).
-Load the git app to your local machine.
-I am using VSCode as my code editor, same as Gwen.
+Load the git app to your local machine and be sure to include the bash shell option.
+I am using VSCode as my code editor, same as Gwen. Configure your editor to use the bash shell
+as the terminal:
+View -> Command Palette... -> Terminal: Select Default Profile
+SSH instructions are at the bottom of this document.
 
 --------------------------------------------------------------------------------------------------
 Create a repo online and populate it starting with gitHub (as opposed to starting on your local
@@ -41,3 +44,33 @@ git add .
 Commit files to repo.
 
 git commit -m "Title goes here" -m "Description goes here"
+
+Push changes up to gitHub.
+
+git push origin <name of the top of your repos, mine == main>
+
+--------------------------------------------------------------------------------------------------
+
+To push changes to your repo, you'll need to establish a circle of trust between your dev machine
+and gitHub. You'll do this via an SSH certificate.
+I followed these instructions,
+https://endjin.com/blog/2019/09/passwordless-ssh-from-windows-10-to-raspberry-pi
+<yell> BUT I NEEDED TO MAKE SOME CRITICAL MODS TO THESE INSTRUCTIONS!</yell>
+First, you must enable the ssh agent,
+Type in Services in your Windows search box, then scroll down to OpenSSH Authentification agent
+and change startup type to Automatic. Reboot iirc
+Open up a PowerShell terminal in Admin mode and then follow directions above...except there is
+one missing CRLF, so, for your C&P pleasure,
+cd ~\.ssh  # I found this dir directly under C:\Users\myname\.ssh and nav'd there
+ssh-keygen # default key name; no Passphrase
+Set-Service ssh-agent -StartupType Automatic
+Start-Service ssh-agent
+ssh-add ~\.ssh\id_rsa # again, I had troubles in Win w/ the Linux-style home dir (~) so nav'd there
+Sweet. Now the win box knows about an SSH key.
+Now we'll copy the contents of the public key into gitHub to establish the circle of trust
+In gitHub, click on your profile picture in the top right, and then click on Settings.
+Under Access in the left pane, click on 'SSH and GPG keys' and click on the green 'New SSH key'
+Copy and paste the text from id_rsa.pub here...now you can push files to gitHub!
+The first time I did this, a browser window popped open and a login to gitHub was required but 
+just that one time.
+
