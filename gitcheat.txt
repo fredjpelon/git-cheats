@@ -7,8 +7,8 @@ The instructions below are for my starting setup which is a Windows box (running
 To get started, get a gitHub account (apparently there are many other choices for repo storage:
 I used gitHub).
 Load the git app to your local machine and be sure to include the bash shell option.
-I am using VSCode as my code editor, same as Gwen. Configure your editor to use the bash shell
-as the terminal:
+I am using VSCode as my code editor, same as Gwen.  Install the Remote SSH extension to VSCode 
+and configure your editor to use the bash shell as the terminal:
 View -> Command Palette... -> Terminal: Select Default Profile
 SSH instructions are at the bottom of this document.
 
